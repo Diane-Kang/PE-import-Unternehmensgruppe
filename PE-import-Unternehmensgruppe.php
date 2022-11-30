@@ -14,15 +14,13 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
-if ( ! defined( 'PE_22Uhr_Plugin_Path' ) ) {
-	define( 'PE_22Uhr_Plugin_Path', plugin_dir_path( __FILE__ ) );
+if ( ! defined( 'PE_22Uhr_Import_Plugin_Path' ) ) {
+	define( 'PE_22Uhr_Import_Plugin_Path', plugin_dir_path( __FILE__ ) );
 }
 
 //////------------add Admin Menu----------------//
-require_once PE_22Uhr_Plugin_Path . 'includes/PE-22uhr-import-Firmengruppe.php';
-    /////////------- setting map page, and map ceter 
-    add_action('admin_menu', array($this, 'adminPage'));
-    add_action('admin_init', array($this, 'settings'));
+require_once PE_22Uhr_Import_Plugin_Path . 'admin_menu_setting.php';
+
 
 //Admin Menu php - import button 
 //inc/Admin 
@@ -33,16 +31,22 @@ require_once PE_22Uhr_Plugin_Path . 'includes/PE-22uhr-import-Firmengruppe.php';
 
 //Import function php 
 //inc/Import
-// - Import setting 
+// - Local Head (Hierachie : 1) and Branches  (Hierachie : 2)
+// - All same level of child of HEAD POST 
+// 
 
 // Initialize php 
 //inc/pre-import 
-// G.U.T. map seite 
+// G.U.T. map seite--------------------------------------- Head_page 
 //    - slug : g-u-t
 //    - some required Meta data   
-// G.U.T. post 
+//    - Child Page of Main Map page (Firmenverzeichnis)
+
+
+// G.U.T. post   ----------------------------------------- Head_Post 
 //    - slug: g-u-t
 //    - some required Meta data
+//         -- Hierachie : 0    
 //    - link to G.U.T. map seite 
 //    - Featured picture( Thumbnail)  
 
@@ -51,4 +55,3 @@ require_once PE_22Uhr_Plugin_Path . 'includes/PE-22uhr-import-Firmengruppe.php';
 // - Delet all post by condition 
 // - custom post type: Unternehmen 
 // - Firmengruppe - G.U.T.
- 
