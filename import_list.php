@@ -53,7 +53,7 @@ class PE_Import_Company_List_excute{
         ),
         'post_name' => 'g-u-t',
       ));
-      self::Generate_Featured_Image( 'https://page-effect.de/wp-content/uploads/logos/'.'GUT-Logo.jpg', $postId  );
+      self::Generate_Featured_Image( 'https://page-effect.de/wp-content/uploads/logos-22uhr/g-u-t/'.'GUT-Logo.jpg', $postId  );
     }
   
   
@@ -111,11 +111,11 @@ class PE_Import_Company_List_excute{
           'post_parent' => get_page_by_path('g-u-t', OBJECT, 'unternehmen')->ID
         ));
 
-        self::Generate_Featured_Image( 'https://page-effect.de/wp-content/uploads/logos/'. $single['Logo Filename'], $postId  );
+        self::Generate_Featured_Image( 'https://page-effect.de/wp-content/uploads/logos-22uhr/g-u-t/'. $single['Logo Filename'], $postId  );
       }
     }
  
-    $attachment_id = self::upload_abek_logo('https://page-effect.de/wp-content/uploads/logos/gut-abex-logo.jpg');
+    $attachment_id = self::upload_abek_logo('https://page-effect.de/wp-content/uploads/logos-22uhr/g-u-t/gut-abex-logo.jpg');
 
     // Then generate child posts of local head
     foreach ($array as $single) {
