@@ -12,7 +12,7 @@ class PE_Import_Company_List_excute{
 
   private $Firmengruppe_name = 'G.U.T.';
   private $Firmengruppe_slug = 'g-u-t';
-  private $logo_server = 'https://page-effect.de/wp-content/uploads/logos/';
+  private $logo_server = 'https://page-effect.de/wp-content/uploads/logos-22uhr/g-u-t/';
 
   /* __getter function */
   public function __get( $variable ){
@@ -39,7 +39,7 @@ class PE_Import_Company_List_excute{
           'Postleitzahl'  => '26180',
           'Straße und Hausnummer'     => 'Schafjückenweg 1',
           'Internet'     => 'https://www.gut-gruppe.de/',
-          'PDF Pfad' => '/tbd',
+          'PDF Pfad' => '/wp-content/uploads/2022/12/Zertifikat-22Uhr-GUT-Gruppe-2022.pdf',
           'firmengruppen' => 'G.U.T.',
           'firmengruppen-hierarchie'  => 0,
           'firmengruppen-seite'=> 'g-u-t/',
@@ -93,7 +93,7 @@ class PE_Import_Company_List_excute{
             'Postleitzahl' => $single['PLZ'],
             'Straße und Hausnummer' => $single['Straße'] . $single['Hausnummer'],
             'Internet'     => $single['Homepage'],
-            'PDF Pfad' => '/tbd',
+            'PDF Pfad' => '/wp-content/uploads/2022/12/Zertifikat-22Uhr-GUT-Gruppe-2022.pdf',
             'Abschaltung' => $single['Details zur Lichtabschaltung'],
             'firmengruppen' => 'G.U.T.',
             'firmengruppen-hierarchie' => 1,
@@ -135,7 +135,7 @@ class PE_Import_Company_List_excute{
               'Postleitzahl' => $single['PLZ'],
               'Straße und Hausnummer' => $single['Straße'] . $single['Hausnummer'],
               'Internet'     => $single['Homepage'],
-              'PDF Pfad' => '/tbd',
+              'PDF Pfad' => '/wp-content/uploads/2022/12/Zertifikat-22Uhr-GUT-Gruppe-2022.pdf',
               'Abschaltung' => $single['Details zur Lichtabschaltung'],
               'firmengruppen' => 'G.U.T.',
               'firmengruppen-hierarchie' => 2,
