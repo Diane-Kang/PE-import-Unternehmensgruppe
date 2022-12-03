@@ -86,8 +86,8 @@ class PE_Import_Company_List_excute{
           'post_status' => 'publish',
           'meta_input' => array(
             'Logo Filename' => $single['Logo Filename'],
-            '1-Breitengrad' => $single['Breitengrad (Komma)'],
-            '2-Laengengrad' => $single['Längengrad (Komma)'],
+            '1-Breitengrad' => str_replace(',', '.',$single['Breitengrad (Komma)']),
+            '2-Laengengrad' => str_replace(',', '.',$single['Längengrad (Komma)']),
             'Land'          => 'DE',
             'Bundesland' => $single['Bundesland'],
             'Postleitzahl' => $single['PLZ'],
@@ -128,8 +128,8 @@ class PE_Import_Company_List_excute{
             'post_status' => 'publish',
             'meta_input' => array(
               'Logo Filename' => '--',
-              '1-Breitengrad' => $single['Breitengrad (Komma)'],
-              '2-Laengengrad' => $single['Längengrad (Komma)'],
+              '1-Breitengrad' => str_replace(',', '.',$single['Breitengrad (Komma)']),
+              '2-Laengengrad' => str_replace(',', '.',$single['Längengrad (Komma)']),
               'Land'          => 'DE',
               'Bundesland' => $single['Bundesland'],
               'Postleitzahl' => $single['PLZ'],
