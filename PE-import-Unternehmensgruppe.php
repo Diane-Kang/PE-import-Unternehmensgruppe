@@ -6,7 +6,7 @@
   Plugin URI: 
   Description: 
   Automatic importing when we get a list of company group.
-  Version: 0.0.1
+  Version: 0.0.2
   Author: Page-effect - Diane 
   Author URI: Page-effect.com
 */
