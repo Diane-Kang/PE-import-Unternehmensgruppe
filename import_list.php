@@ -43,8 +43,8 @@ class PE_Import_Company_List_excute{
           'firmengruppen' => 'G.U.T.',
           'firmengruppen-hierarchie'  => 0,
           'firmengruppen-seite'=> 'g-u-t/',
-          'Abschaltung' => '<h5>Was wir für weniger Lichtverschmutzung und weniger Energieverbrauch tun:</h5><p>Die einzelnen Partnerhäuser der G.U.T.-GRUPPE entscheiden eigenständig für ihre Niederlassungen, Ausstellungen und ABEX-Abholläger, welche Beleuchtung sie wann abschalten. Wir haben mal nachgefragt und sind bereits zu Beginn der Aktion zu einem tollen Ergebnis gekommen: <strong>Bei zwei Dritteln (65,9%) aller G.U.T.-Standorte sind um 21 Uhr die Werbelichter und alle Beleuchtungen ausgeschaltet! </strong>Knapp 16 Prozent legen den Schalter schon eine Stunde früher um. Bei immerhin noch etwas mehr als 10 Prozent aller G.U.T.-Häuser ist es bereits um 19 Uhr und bei knapp 8 Prozent bereits um 18 Uhr alles dunkel.</p><p>Aber ganz besonders stolz sind wir darauf, dass ziemlich genau die Hälfte dieser Maßnahmen bereits vor unserer Beteiligung am Projekt „22 Uhr – Licht aus“ umgesetzt waren. Wir arbeiten stetig daran, unseren Beitrag zu mehr Energieeffizienz und weniger Lichtverschmutzung zu optimieren. Für eine bessere Umwelt.</p>'
-          //'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)' =>  $vorProjekt=="ja" ? 'nein' : 'ja',
+          'Abschaltung' => '<h5>Was wir für weniger Lichtverschmutzung und weniger Energieverbrauch tun:</h5><p>Die einzelnen Partnerhäuser der G.U.T.-GRUPPE entscheiden eigenständig für ihre Niederlassungen, Ausstellungen und ABEX-Abholläger, welche Beleuchtung sie wann abschalten. Wir haben mal nachgefragt und sind bereits zu Beginn der Aktion zu einem tollen Ergebnis gekommen: <strong>Bei zwei Dritteln (65,9%) aller G.U.T.-Standorte sind um 21 Uhr die Werbelichter und alle Beleuchtungen ausgeschaltet! </strong>Knapp 16 Prozent legen den Schalter schon eine Stunde früher um. Bei immerhin noch etwas mehr als 10 Prozent aller G.U.T.-Häuser ist es bereits um 19 Uhr und bei knapp 8 Prozent bereits um 18 Uhr alles dunkel.</p><p>Aber ganz besonders stolz sind wir darauf, dass ziemlich genau die Hälfte dieser Maßnahmen bereits vor unserer Beteiligung am Projekt „22 Uhr – Licht aus“ umgesetzt waren. Wir arbeiten stetig daran, unseren Beitrag zu mehr Energieeffizienz und weniger Lichtverschmutzung zu optimieren. Für eine bessere Umwelt.</p>',
+          'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)' =>  'nein',
                 ),
         'tax_input' => array(
           'branche' => term_exists( 'Baumärkte', 'branche'),
@@ -61,7 +61,7 @@ class PE_Import_Company_List_excute{
 
 
   public function generate_list_from_csv(){
-    $rows   = array_map('str_getcsv', file( PE_22Uhr_Import_Plugin_Path . 'Import_list_30Nov.csv'));
+    $rows   = array_map('str_getcsv', file( PE_22Uhr_Import_Plugin_Path . 'Import_list_2_dez.csv'));
     $header = array_shift($rows);
     $csv    = array();
     foreach($rows as $row) {
@@ -81,7 +81,7 @@ class PE_Import_Company_List_excute{
       $vorProjekt = $single['Unabhängige Umsetzung bereits vor Projekt?'];
       $postId = wp_insert_post(array(
           'post_type' => 'unternehmen',
-          'post_title' => $single['Standortname'] .' '. $single['Werblicher Anzeige Name'],
+          'post_title' => $single['Standortname'] .' <span>'. $single['Werblicher Anzeige Name'] . '</span>',
           'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. '('.$single['Funktion des Statementgebers'] .'), Okt.2022</h4>', 
           'post_status' => 'publish',
           'meta_input' => array(
@@ -123,7 +123,7 @@ class PE_Import_Company_List_excute{
         $vorProjekt = $single['Unabhängige Umsetzung bereits vor Projekt?'];
         $postId = wp_insert_post(array(
             'post_type' => 'unternehmen',
-            'post_title' => $single['Standortname'] .' '. $single['Werblicher Anzeige Name'],
+            'post_title' => $single['Standortname'] .'  <span>'. $single['Werblicher Anzeige Name'] . '</span>',
             'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. '('.$single['Funktion des Statementgebers'] .'), Okt.2022</h4>', 
             'post_status' => 'publish',
             'meta_input' => array(
