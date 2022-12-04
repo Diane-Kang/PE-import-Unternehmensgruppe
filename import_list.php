@@ -81,7 +81,7 @@ class PE_Import_Company_List_excute{
       $vorProjekt = $single['Unabhängige Umsetzung bereits vor Projekt?'];
       $postId = wp_insert_post(array(
           'post_type' => 'unternehmen',
-          'post_title' => $single['Standortname'] .' '. $single['Werblicher Anzeige Name'],
+          'post_title' => $single['Standortname'] .' <span>'. $single['Werblicher Anzeige Name'] . '</span>',
           'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. '('.$single['Funktion des Statementgebers'] .'), Okt.2022</h4>', 
           'post_status' => 'publish',
           'meta_input' => array(
@@ -123,7 +123,7 @@ class PE_Import_Company_List_excute{
         $vorProjekt = $single['Unabhängige Umsetzung bereits vor Projekt?'];
         $postId = wp_insert_post(array(
             'post_type' => 'unternehmen',
-            'post_title' => $single['Standortname'] .' '. $single['Werblicher Anzeige Name'],
+            'post_title' => $single['Standortname'] .'  <span>'. $single['Werblicher Anzeige Name'] . '</span>',
             'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. '('.$single['Funktion des Statementgebers'] .'), Okt.2022</h4>', 
             'post_status' => 'publish',
             'meta_input' => array(
