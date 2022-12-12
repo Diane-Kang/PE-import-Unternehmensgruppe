@@ -78,7 +78,7 @@ class PE_Import_Company_List_excute{
 
       // First generate post for local head
       if ($single['Standorttyp Name'] == 'HAUPTHAUS'){
-      $vorProjekt = $single['Unabhängige Umsetzung bereits vor Projekt?'];
+      $vorProjekt = $single['Änderung der Beleuchtung durch Teilnahme am Projekt?'];
       $postId = wp_insert_post(array(
           'post_type' => 'unternehmen',
           'post_title' => $single['Standortname'] .' <span>'. $single['Werblicher Anzeige Name'] . '</span>',
@@ -98,7 +98,7 @@ class PE_Import_Company_List_excute{
             'firmengruppen' => 'G.U.T.',
             'firmengruppen-hierarchie' => 1,
             'firmen_slug' => $single['Slug'], 
-            'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)' =>  $vorProjekt=="ja" ? 'nein' : 'ja',
+            'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)' =>  $vorProjekt,
                   ),
           'tax_input' => array(
             'branche' => array(
@@ -140,7 +140,7 @@ class PE_Import_Company_List_excute{
               'firmengruppen' => 'G.U.T.',
               'firmengruppen-hierarchie' => 2,
               'firmen_slug' => $single['Slug'],
-              'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)' =>  $vorProjekt=="ja" ? 'nein' : 'ja',
+              'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)' =>  $vorProjekt,
                     ),
             'tax_input' => array(
               'branche' => array(
