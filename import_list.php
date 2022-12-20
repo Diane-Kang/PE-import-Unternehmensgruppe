@@ -47,8 +47,8 @@ class PE_Import_Company_List_excute{
           'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)' =>  'ja',
                 ),
         'tax_input' => array(
-          'branche' => term_exists( 'Baumärkte', 'branche'),
-            //term_exists( 'Baumärkte', 'branche')
+          'branche' => term_exists( 'Großhandel', 'branche'),
+            //term_exists( 'Großhandel', 'branche')
         'abschaltung' => '21 Uhr',
         ),
         'post_name' => 'g-u-t',
@@ -102,8 +102,8 @@ class PE_Import_Company_List_excute{
                   ),
           'tax_input' => array(
             'branche' => array(
-              'Baumärkte',
-              //term_exists( 'Baumärkte', 'branche'),
+              'Großhandel',
+              //term_exists( 'Großhandel', 'branche'),
             ),
             'abschaltung' => $single['Um wie viel Uhr wird das Licht ausgestellt?'],
           ),
@@ -144,8 +144,8 @@ class PE_Import_Company_List_excute{
                     ),
             'tax_input' => array(
               'branche' => array(
-                'Baumärkte',
-                //term_exists( 'Baumärkte', 'branche'),
+                'Großhandel',
+                //term_exists( 'Großhandel', 'branche'),
               ),
               'abschaltung' => $single['Um wie viel Uhr wird das Licht ausgestellt?'],
             ),
