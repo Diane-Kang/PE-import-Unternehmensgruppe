@@ -44,12 +44,12 @@ class PE_Import_Company_List_excute{
           'firmengruppen-hierarchie'  => 0,
           'firmengruppen-seite'=> 'g-u-t/',
           'Abschaltung' => '<h5>Was wir für weniger Lichtverschmutzung und weniger Energieverbrauch tun:</h5><p>Die einzelnen Partnerhäuser der G.U.T.-GRUPPE entscheiden eigenständig für ihre Niederlassungen, Ausstellungen und ABEX-Abholläger, welche Beleuchtung sie wann abschalten. Wir haben mal nachgefragt und sind bereits zu Beginn der Aktion zu einem tollen Ergebnis gekommen: <strong>Bei zwei Dritteln (65,9%) aller G.U.T.-Standorte sind um 21 Uhr die Werbelichter und alle Beleuchtungen ausgeschaltet! </strong>Knapp 16 Prozent legen den Schalter schon eine Stunde früher um. Bei immerhin noch etwas mehr als 10 Prozent aller G.U.T.-Häuser ist es bereits um 19 Uhr und bei knapp 8 Prozent bereits um 18 Uhr alles dunkel.</p><p>Aber ganz besonders stolz sind wir darauf, dass ziemlich genau die Hälfte dieser Maßnahmen bereits vor unserer Beteiligung am Projekt „22 Uhr – Licht aus“ umgesetzt waren. Wir arbeiten stetig daran, unseren Beitrag zu mehr Energieeffizienz und weniger Lichtverschmutzung zu optimieren. Für eine bessere Umwelt.</p>',
-          'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)' =>  'ja',
+          'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)' =>  'j',
                 ),
         'tax_input' => array(
           'branche' => term_exists( 'Großhandel', 'branche'),
             //term_exists( 'Großhandel', 'branche')
-        'abschaltung' => '21 Uhr',
+          'abschaltung' => '21 Uhr',
         ),
         'post_name' => 'g-u-t',
       ));
@@ -82,7 +82,7 @@ class PE_Import_Company_List_excute{
       $postId = wp_insert_post(array(
           'post_type' => 'unternehmen',
           'post_title' => $single['Standortname'] .' <span>'. $single['Werblicher Anzeige Name'] . '</span>',
-          'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. '&nbsp('.$single['Funktion des Statementgebers'] .'), Okt.&nbsp2022</h4>', 
+          'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. ' ('.$single['Funktion des Statementgebers'] .'), Okt. 2022</h4>', 
           'post_status' => 'publish',
           'meta_input' => array(
             'Logo Filename' => $single['Logo Filename'],
@@ -99,12 +99,8 @@ class PE_Import_Company_List_excute{
             'firmengruppen-hierarchie' => 1,
             'firmen_slug' => $single['Slug'], 
             'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)' =>  $vorProjekt,
-                  ),
+          ),
           'tax_input' => array(
-            'branche' => array(
-              'Großhandel',
-              //term_exists( 'Großhandel', 'branche'),
-            ),
             'abschaltung' => $single['Um wie viel Uhr wird das Licht ausgestellt?'],
           ),
           'post_name' => $single['Slug'],
@@ -124,7 +120,7 @@ class PE_Import_Company_List_excute{
         $postId = wp_insert_post(array(
             'post_type' => 'unternehmen',
             'post_title' => $single['Standortname'] .'  <span>'. $single['Werblicher Anzeige Name'] . '</span>',
-            'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. '&nbsp('.$single['Funktion des Statementgebers'] .'),&nbspOkt.&nbsp2022</h4>', 
+            'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. ' ('.$single['Funktion des Statementgebers'] .'), Okt. 2022</h4>', 
             'post_status' => 'publish',
             'meta_input' => array(
               'Logo Filename' => '--',
@@ -141,14 +137,10 @@ class PE_Import_Company_List_excute{
               'firmengruppen-hierarchie' => 2,
               'firmen_slug' => $single['Slug'],
               'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)' =>  $vorProjekt,
-                    ),
-            'tax_input' => array(
-              'branche' => array(
-                'Großhandel',
-                //term_exists( 'Großhandel', 'branche'),
               ),
-              'abschaltung' => $single['Um wie viel Uhr wird das Licht ausgestellt?'],
-            ),
+              'tax_input' => array(
+                'abschaltung' => $single['Um wie viel Uhr wird das Licht ausgestellt?'],
+              ),
           'post_parent' => get_page_by_path('g-u-t/'.$single['Slug'], OBJECT, 'unternehmen')->ID
         ));
         // apek log ist manualle gegeben
