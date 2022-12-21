@@ -48,7 +48,6 @@ class PE_Import_Company_List_excute{
                 ),
         'tax_input' => array(
           'branche' => term_exists( 'Großhandel', 'branche'),
-            //term_exists( 'Großhandel', 'branche')
           'abschaltung' => '21 Uhr',
         ),
         'post_name' => 'g-u-t',
@@ -101,6 +100,7 @@ class PE_Import_Company_List_excute{
             'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)' =>  $vorProjekt,
           ),
           'tax_input' => array(
+            'branche' => term_exists( 'Großhandel', 'branche'),
             'abschaltung' => $single['Um wie viel Uhr wird das Licht ausgestellt?'],
           ),
           'post_name' => $single['Slug'],
@@ -139,6 +139,7 @@ class PE_Import_Company_List_excute{
               'Werbebeleuchtung wurde im Projektrahmen angepasst (j/n)' =>  $vorProjekt,
               ),
               'tax_input' => array(
+                'branche' => term_exists( 'Großhandel', 'branche'),
                 'abschaltung' => $single['Um wie viel Uhr wird das Licht ausgestellt?'],
               ),
           'post_parent' => get_page_by_path('g-u-t/'.$single['Slug'], OBJECT, 'unternehmen')->ID
