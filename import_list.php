@@ -82,7 +82,7 @@ class PE_Import_Company_List_excute{
       $postId = wp_insert_post(array(
           'post_type' => 'unternehmen',
           'post_title' => $single['Standortname'] .' <span>'. $single['Werblicher Anzeige Name'] . '</span>',
-          'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. ' ('.$single['Funktion des Statementgebers'] .'), Okt. 2022</h4>', 
+          'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. '&nbsp('.$single['Funktion des Statementgebers'] .'), Okt.&nbsp2022</h4>', 
           'post_status' => 'publish',
           'meta_input' => array(
             'Logo Filename' => $single['Logo Filename'],
@@ -91,7 +91,7 @@ class PE_Import_Company_List_excute{
             'Land'          => 'DE',
             'Bundesland' => $single['Bundesland'],
             'Postleitzahl' => $single['PLZ'],
-            'Straße und Hausnummer' => $single['Straße'] . ' ' . $single['Hausnummer'],
+            'Straße und Hausnummer' => $single['Straße'] . '&nbsp' . $single['Hausnummer'],
             'Internet'     => $single['Homepage'],
             'PDF Pfad' => '/wp-content/plugins/PE-import-Unternehmensgruppe/Zertifikat-22Uhr-GUT-Gruppe-Rastede-2022-Vorlage.pdf',
             'Abschaltung' => $single['Details zur Lichtabschaltung'],
@@ -124,7 +124,7 @@ class PE_Import_Company_List_excute{
         $postId = wp_insert_post(array(
             'post_type' => 'unternehmen',
             'post_title' => $single['Standortname'] .'  <span>'. $single['Werblicher Anzeige Name'] . '</span>',
-            'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. '('.$single['Funktion des Statementgebers'] .'), Okt.2022</h4>', 
+            'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. '&nbsp('.$single['Funktion des Statementgebers'] .'),&nbspOkt.&nbsp2022</h4>', 
             'post_status' => 'publish',
             'meta_input' => array(
               'Logo Filename' => '--',
@@ -133,7 +133,7 @@ class PE_Import_Company_List_excute{
               'Land'          => 'DE',
               'Bundesland' => $single['Bundesland'],
               'Postleitzahl' => $single['PLZ'],
-              'Straße und Hausnummer' => $single['Straße'] . $single['Hausnummer'],
+              'Straße und Hausnummer' => $single['Straße'] . '&nbsp' . $single['Hausnummer'],
               'Internet'     => $single['Homepage'],
               'PDF Pfad' => '/wp-content/plugins/PE-import-Unternehmensgruppe/Zertifikat-22Uhr-GUT-Gruppe-Rastede-2022-Vorlage.pdf',
               'Abschaltung' => $single['Details zur Lichtabschaltung'],
