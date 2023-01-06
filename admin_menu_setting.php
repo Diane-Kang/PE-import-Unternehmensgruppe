@@ -25,7 +25,6 @@ class PE_Import_Company_List_Setting_Menu{
     add_action('admin_menu', array($this, 'adminPage'));
   }
 
-
   function adminPage() {
     add_menu_page( 'Company list import', 'PE - Import', 'manage_options', 'pe-list-import-page', array($this, 'settingHTML') );
   }
@@ -41,11 +40,10 @@ class PE_Import_Company_List_Setting_Menu{
 
   // General check for user permissions.
   if (!current_user_can('manage_options'))  {
-    wp_die( __('You do not have sufficient pilchards to access this page.')    );
+    wp_die( __('You do not have sufficient allowance to access this page.')    );
   }
 
   // Start building the page
-
   ?> 
   <div class="wrap">
     <h2>Import Unternehmenlist</h2>
