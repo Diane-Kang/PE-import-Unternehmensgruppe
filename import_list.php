@@ -61,7 +61,7 @@ class PE_Import_Company_List_excute{
 
 
   public function generate_list_from_csv(){
-    $rows   = array_map('str_getcsv', file( PE_22Uhr_Import_Plugin_Path . 'Import_list_11_dez.csv'));
+    $rows   = array_map('str_getcsv', file( PE_22Uhr_Import_Plugin_Path . 'Import_list_10_jan.csv'));
     $header = array_shift($rows);
     $csv    = array();
     foreach($rows as $row) {
