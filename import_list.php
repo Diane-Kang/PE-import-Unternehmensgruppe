@@ -13,6 +13,7 @@ class PE_Import_Company_List_excute{
   private $Firmengruppe_name = 'G.U.T.';
   private $Firmengruppe_slug = 'g-u-t';
   private $logo_server = 'https://page-effect.de/wp-content/uploads/logos-22uhr/g-u-t/';
+  private $zertifikat_gut_2023 = '/wp-content/plugins/PE-import-Unternehmensgruppe/2023-Zertifikat-GUT-Gruppe-Projekt-22Uhr';
 
   /* __getter function */
   public function __get( $variable ){
@@ -29,7 +30,7 @@ class PE_Import_Company_List_excute{
       $postId = wp_insert_post(array(
         'post_type'     => 'unternehmen',
         'post_title'    => 'G.U.T.-GRUPPE',
-        'post_content'  => '<p>Nachhaltigkeit, Menschlichkeit und das Bewusstsein für Umwelt und Klimawandel sind tief im Unternehmensverständnis der G.U.T.-GRUPPE verankert. Schließlich trägt der Verbund aus etablierten Fachgroßhändlern für Haustechnik schon den Nachhaltigkeitsgedanken im Namen: G.U.T. = Gebäude- und Umwelttechnik. Das, was die Partnerhäuser, ihre Gesellschafter, alle Mitarbeiter und mittlerweile auch die Kundschaft aus Fachhandwerkern bereits verinnerlicht haben und wie selbstverständlich leben, wird darüber hinaus durch ein überdurchschnittliches Umwelt-Engagement begleitet. Daher engagieren wir uns mit unseren mehr als 50 Partnerhäusern an über 260 Standorten in Deutschland an dem Projekt „22 Uhr – Licht aus“. Dabei sparen wir nicht nur enorm Energie ein, sondern freuen uns riesig, noch zusätzlich etwas gegen den Klimawandel und gegen die wachsende Lichtverschmutzung in Ballungszentren tun zu können.</p><h4>Bernd Reinke (PhG), Okt. 2022</h4>', 
+        'post_content'  => '<p>Nachhaltigkeit, Menschlichkeit und das Bewusstsein für Umwelt und Klimawandel sind tief im Unternehmensverständnis der G.U.T.-GRUPPE verankert. Schließlich trägt der Verbund aus etablierten Fachgroßhändlern für Haustechnik schon den Nachhaltigkeitsgedanken im Namen: G.U.T. = Gebäude- und Umwelttechnik. Das, was die Partnerhäuser, ihre Gesellschafter, alle Mitarbeiter und mittlerweile auch die Kundschaft aus Fachhandwerkern bereits verinnerlicht haben und wie selbstverständlich leben, wird darüber hinaus durch ein überdurchschnittliches Umwelt-Engagement begleitet. Daher engagieren wir uns mit unseren mehr als 50 Partnerhäusern an über 260 Standorten in Deutschland an dem Projekt „22 Uhr – Licht aus“. Dabei sparen wir nicht nur enorm Energie ein, sondern freuen uns riesig, noch zusätzlich etwas gegen den Klimawandel und gegen die wachsende Lichtverschmutzung in Ballungszentren tun zu können.</p><h4>Bernd Reinke (Persönlich haftender Gesellschafter), Okt. 2022</h4>', 
         'post_status'   => 'publish',
         'meta_input'    => array(
           '1-Breitengrad' => '53.21951431194988',
@@ -40,7 +41,7 @@ class PE_Import_Company_List_excute{
           'Postleitzahl'  => '26180',
           'Straße und Hausnummer'     => 'Schafjückenweg 1',
           'Internet'     => 'https://www.gut-gruppe.de/',
-          'PDF Pfad' => '/wp-content/plugins/PE-import-Unternehmensgruppe/Zertifikat-22Uhr-GUT-Gruppe-Rastede-2022-Vorlage.pdf',
+          'PDF Pfad' => $zertifikat_gut_2023,
           'firmengruppen' => 'G.U.T.',
           'firmengruppen-hierarchie'  => 0,
           'firmengruppen-seite'=> 'g-u-t/',
@@ -53,11 +54,10 @@ class PE_Import_Company_List_excute{
         ),
         'post_name' => 'g-u-t',
       ));
-      self::Generate_Featured_Image( 'https://page-effect.de/wp-content/uploads/logos-22uhr/g-u-t/'.'GUT-Logo.jpg', $postId  );
+      self::Generate_Featured_Image( $logo_server.'GUT-Logo.jpg', $postId  );
     }
   
-  
-  
+    
 
 
   public function generate_list_from_csv(){
@@ -94,7 +94,7 @@ class PE_Import_Company_List_excute{
             'Postleitzahl' => $single['PLZ'],
             'Straße und Hausnummer' => $single['Straße'] . '&nbsp' . $single['Hausnummer'],
             'Internet'     => $single['Homepage'],
-            'PDF Pfad' => '/wp-content/plugins/PE-import-Unternehmensgruppe/Zertifikat-22Uhr-GUT-Gruppe-Rastede-2022-Vorlage.pdf',
+            'PDF Pfad' => $zertifikat_gut_2023,
             'Abschaltung' => $single['Details zur Lichtabschaltung'],
             'firmengruppen' => 'G.U.T.',
             'firmengruppen-hierarchie' => 1,
@@ -109,11 +109,11 @@ class PE_Import_Company_List_excute{
           'post_parent' => get_page_by_path('g-u-t', OBJECT, 'unternehmen')->ID
         ));
 
-        self::Generate_Featured_Image( 'https://page-effect.de/wp-content/uploads/logos-22uhr/g-u-t/'. $single['Logo Filename'], $postId  );
+        self::Generate_Featured_Image( $logo_server. $single['Logo Filename'], $postId  );
       }
     }
  
-    $attachment_id = self::upload_abek_logo('https://page-effect.de/wp-content/uploads/logos-22uhr/g-u-t/gut-abex-logo.jpg');
+    $attachment_id = self::upload_abek_logo( $logo_server . '/gut-abex-logo.jpg');
 
     // Then generate child posts of local head
     foreach ($array as $single) {
@@ -134,7 +134,7 @@ class PE_Import_Company_List_excute{
               'Postleitzahl' => $single['PLZ'],
               'Straße und Hausnummer' => $single['Straße'] . '&nbsp' . $single['Hausnummer'],
               'Internet'     => $single['Homepage'],
-              'PDF Pfad' => '/wp-content/plugins/PE-import-Unternehmensgruppe/Zertifikat-22Uhr-GUT-Gruppe-Rastede-2022-Vorlage.pdf',
+              'PDF Pfad' => $zertifikat_gut_2023,
               'Abschaltung' => $single['Details zur Lichtabschaltung'],
               'firmengruppen' => 'G.U.T.',
               'firmengruppen-hierarchie' => 2,
