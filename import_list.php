@@ -12,20 +12,11 @@ class PE_Import_Company_List_excute{
 
   private $Firmengruppe_name = 'G.U.T.';
   private $Firmengruppe_slug = 'g-u-t';
-  private $logo_server = 'https://page-effect.de/wp-content/uploads/logos-22uhr/g-u-t/';
-  private $zertifikat_gut_2023 = '/wp-content/plugins/PE-import-Unternehmensgruppe/2023-Zertifikat-GUT-Gruppe-Projekt-22Uhr';
-
-  /* __getter function */
-  public function __get( $variable ){
-    if( !empty($this->$variable) ){
-        $get_variable = $this->$variable;
-    }
-
-    return $get_variable;
-  }
+  const LOGO_SERVER = 'https://page-effect.de/wp-content/uploads/logos-22uhr/g-u-t/';
+  const ZERIFIKAT_GUT_2023 = '/wp-content/plugins/PE-import-Unternehmensgruppe/2023-Zertifikat-GUT-Gruppe-Projekt-22Uhr.pdf';
   
-   
-    function generate_Head_Post(){
+
+  public function generate_Head_Post(){
   
       $postId = wp_insert_post(array(
         'post_type'     => 'unternehmen',
@@ -41,7 +32,7 @@ class PE_Import_Company_List_excute{
           'Postleitzahl'  => '26180',
           'Straße und Hausnummer'     => 'Schafjückenweg 1',
           'Internet'     => 'https://www.gut-gruppe.de/',
-          'PDF Pfad' => $zertifikat_gut_2023,
+          'PDF Pfad' => self::ZERIFIKAT_GUT_2023,
           'firmengruppen' => 'G.U.T.',
           'firmengruppen-hierarchie'  => 0,
           'firmengruppen-seite'=> 'g-u-t/',
@@ -54,7 +45,7 @@ class PE_Import_Company_List_excute{
         ),
         'post_name' => 'g-u-t',
       ));
-      self::Generate_Featured_Image( $logo_server.'GUT-Logo.jpg', $postId  );
+      self::Generate_Featured_Image( self::LOGO_SERVER.'GUT-Logo.jpg', $postId  );
     }
   
     
@@ -94,7 +85,7 @@ class PE_Import_Company_List_excute{
             'Postleitzahl' => $single['PLZ'],
             'Straße und Hausnummer' => $single['Straße'] . '&nbsp' . $single['Hausnummer'],
             'Internet'     => $single['Homepage'],
-            'PDF Pfad' => $zertifikat_gut_2023,
+            'PDF Pfad' => self::ZERIFIKAT_GUT_2023,
             'Abschaltung' => $single['Details zur Lichtabschaltung'],
             'firmengruppen' => 'G.U.T.',
             'firmengruppen-hierarchie' => 1,
@@ -109,11 +100,11 @@ class PE_Import_Company_List_excute{
           'post_parent' => get_page_by_path('g-u-t', OBJECT, 'unternehmen')->ID
         ));
 
-        self::Generate_Featured_Image( $logo_server. $single['Logo Filename'], $postId  );
+        self::Generate_Featured_Image( self::LOGO_SERVER. $single['Logo Filename'], $postId  );
       }
     }
  
-    $attachment_id = self::upload_abek_logo( $logo_server . '/gut-abex-logo.jpg');
+    $attachment_id = self::upload_abek_logo( self::LOGO_SERVER . '/gut-abex-logo.jpg');
 
     // Then generate child posts of local head
     foreach ($array as $single) {
@@ -134,7 +125,7 @@ class PE_Import_Company_List_excute{
               'Postleitzahl' => $single['PLZ'],
               'Straße und Hausnummer' => $single['Straße'] . '&nbsp' . $single['Hausnummer'],
               'Internet'     => $single['Homepage'],
-              'PDF Pfad' => $zertifikat_gut_2023,
+              'PDF Pfad' => self::ZERIFIKAT_GUT_2023,
               'Abschaltung' => $single['Details zur Lichtabschaltung'],
               'firmengruppen' => 'G.U.T.',
               'firmengruppen-hierarchie' => 2,
