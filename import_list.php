@@ -12,6 +12,7 @@ class PE_Import_Company_List_excute{
 
   private $Firmengruppe_name = 'G.U.T.';
   private $Firmengruppe_slug = 'g-u-t';
+  const CSV_FILE = 'import_24_jan.csv';
   const LOGO_SERVER = 'https://page-effect.de/wp-content/uploads/logos-22uhr/g-u-t/';
   const ZERIFIKAT_GUT_2023 = '/wp-content/plugins/PE-import-Unternehmensgruppe/2023-Zertifikat-GUT-Gruppe-Projekt-22Uhr.pdf';
   
@@ -52,7 +53,7 @@ class PE_Import_Company_List_excute{
 
 
   public function generate_list_from_csv(){
-    $rows   = array_map('str_getcsv', file( PE_22Uhr_Import_Plugin_Path . 'Import_list_20_jan.csv'));
+    $rows   = array_map('str_getcsv', file( PE_22Uhr_Import_Plugin_Path . self::CSV_FILE));
     $header = array_shift($rows);
     $csv    = array();
     foreach($rows as $row) {
@@ -73,7 +74,7 @@ class PE_Import_Company_List_excute{
       $postId = wp_insert_post(array(
           'post_type' => 'unternehmen',
           'post_title' => $single['Standortname'] .' <span>'. $single['Werblicher Anzeige Name'] . '</span>',
-          'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. ' ('.$single['Funktion des Statementgebers'] .'), Okt. 2022</h4>', 
+          'post_content' => ($single['Statement'] == "")? "" : $single['Statement'] . '<h4>'. $single['Statementgeber']. ' ('.$single['Funktion des Statementgebers'] .'), Okt. 2022</h4>', 
           'post_status' => 'publish',
           'meta_input' => array(
             'Logo Filename' => $single['Logo Filename'],
@@ -113,7 +114,7 @@ class PE_Import_Company_List_excute{
         $postId = wp_insert_post(array(
             'post_type' => 'unternehmen',
             'post_title' => $single['Standortname'] .'  <span>'. $single['Werblicher Anzeige Name'] . '</span>',
-            'post_content' => $single['Statement'] . '<h4>'. $single['Statementgeber']. ' ('.$single['Funktion des Statementgebers'] .'), Okt. 2022</h4>', 
+            'post_content' => ($single['Statement'] == "")? "" : $single['Statement'] . '<h4>'. $single['Statementgeber']. ' ('.$single['Funktion des Statementgebers'] .'), Okt. 2022</h4>', 
             'post_status' => 'publish',
             'meta_input' => array(
               'Logo Filename' => '--',
